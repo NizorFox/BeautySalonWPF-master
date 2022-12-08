@@ -15,16 +15,6 @@
             <Setter Property="FontSize" Value="26"/>
         </Style>
 
-        <Style TargetType="Button" x:Key="Button_Record_Close">
-            <Setter Property="VerticalAlignment" Value="Top"/>
-            <Setter Property="Height" Value="50"/>
-            <Setter Property="Width" Value="180"/>
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="Padding" Value="5"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-        </Style>
-
         <Style TargetType="TextBox">
             <Setter Property="Height" Value="20"/>
             <Setter Property="Width" Value="138"/>
@@ -39,7 +29,7 @@
         <ListView x:Name="ServiceList_View" Grid.Row="1" VerticalAlignment="Center">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
                         <Image Source="{Binding CategoryImage}"  Height="250"/>
                         <TextBlock Text="{Binding CategoryTitle}" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22"/>
                     </Grid>
@@ -51,28 +41,5 @@
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
         </ListView>
-        <Grid HorizontalAlignment="Right" Grid.RowSpan="2"  Width="0" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"></RowDefinition>
-                <RowDefinition Height="5*"></RowDefinition>
-                <RowDefinition Height="1*"></RowDefinition>
-                <RowDefinition Height="1*"></RowDefinition>
-                <RowDefinition Height="1*"></RowDefinition>
-                <RowDefinition Height="1*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <TextBlock >Запись</TextBlock>
-            <Calendar x:Name="CalendarRecord"  Grid.Row="1" >
-            </Calendar>
-            <DockPanel Grid.Row="2">
-                <TextBlock FontSize="15" >Дата:</TextBlock>
-                <TextBox x:Name="EnterDate_TextBox"  IsReadOnly="True" ></TextBox>
-            </DockPanel>
-            <DockPanel Grid.Row="3">
-                <TextBlock FontSize="15">Время:</TextBlock>
-                <TextBox x:Name="EnterTime_TextBox" ></TextBox>
-            </DockPanel>
-            <Button x:Name="Record_Button" Grid.Row="4" Style="{StaticResource Button_Record_Close}" Foreground="White"   Content="Записать"></Button>
-            <Button x:Name="Record_Close"  Grid.Row="5" Style="{StaticResource Button_Record_Close}" Foreground="Black" Background="Gray" Content="Закрыть"  ></Button>
-        </Grid>
     </Grid>
 </Page>

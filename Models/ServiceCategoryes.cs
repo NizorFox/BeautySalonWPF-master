@@ -16,8 +16,8 @@ namespace BeautySalonWPF.Models
         public string CategoryTitle { get; set; }
 
         [JsonProperty("categoryImage")]
-        public string CategoryImage { get; set; }
-        [JsonProperty("services")]
-        public object[] Services { get; set; }
+        public byte[] CategoryImage { get; set; }
+     
+       
     }
 }

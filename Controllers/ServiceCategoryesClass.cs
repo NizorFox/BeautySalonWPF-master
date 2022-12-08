@@ -11,6 +11,10 @@ namespace BeautySalonWPF.Controllers
 {
     public class ServiceCategoryesClass
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static List<ServiceCategoryes> GetServiceCategoryes()
         {
             using (HttpClient client = new HttpClient())
@@ -20,6 +24,10 @@ namespace BeautySalonWPF.Controllers
                 var answer = JsonConvert.DeserializeObject<List<ServiceCategoryes>>(content.Result);
                 return answer;
             }
+        }
+        public static ServiceCategoryes GetInfoCategoryes(int idCat)
+        {
+            return GetServiceCategoryes().Where(x => x.CategoryId == idCat).FirstOrDefault();
         }
     }
 }

@@ -21,10 +21,19 @@ namespace BeautySalonWPF.View.Pages
     /// </summary>
     public partial class StartPage : Page
     {
+        int IdCategory;
         public StartPage()
         {
             InitializeComponent();
             ServiceList_View.ItemsSource= ServiceCategoryesClass.GetServiceCategoryes();
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Grid activeCategory = sender as Grid;
+            ServiceCategoryes activeData = activeCategory.DataContext as ServiceCategoryes;
+            IdCategory = activeData.CategoryId;
+            this.NavigationService.Navigate(new PricePage(IdCategory));
         }
     }
 }
