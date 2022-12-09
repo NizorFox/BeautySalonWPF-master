@@ -21,7 +21,7 @@ namespace BeautySalonWPF.View.Pages
     /// </summary>
     public partial class StartPage : Page
     {
-        int IdCategory;
+        int idCategory;
         public StartPage()
         {
             InitializeComponent();
@@ -32,8 +32,8 @@ namespace BeautySalonWPF.View.Pages
         {
             Grid activeCategory = sender as Grid;
             ServiceCategoryes activeData = activeCategory.DataContext as ServiceCategoryes;
-            IdCategory = activeData.CategoryId;
-            this.NavigationService.Navigate(new PricePage(IdCategory));
+            idCategory = activeData.CategoryId;
+            this.NavigationService.Navigate(new PricePage(idCategory));
         }
     }
 }

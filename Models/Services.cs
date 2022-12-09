@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace BeautySalonWPF.Models
 {
-    class ServicesModel
+    public class Services
     {
-        [JsonProperty("CategoryId")]
+        [JsonProperty("categoryId")]
         public int ServicesCategoryId { get; set; }
 
         [JsonProperty("ID")]
         public int ServicesId { get; set; }
 
-        [JsonProperty("Title")]
-        public string ServicesTitle { get; set; }
+        [JsonProperty("title")]
+        public string Title { get; set; }
 
-        [JsonProperty("Cost")]
-        public int ServicesCost { get; set; }
+        [JsonProperty("cost")]
+        public float Cost { get; set; }
     }
 }

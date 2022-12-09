@@ -24,11 +24,17 @@ namespace BeautySalonWPF.View.Pages
         {
             InitializeComponent();
             MainFrame.Navigate(new StartPage());
+
         }
 
         private void LogOutButtonClick(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void BackButtonClick(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new StartPage());
         }
     }
 }

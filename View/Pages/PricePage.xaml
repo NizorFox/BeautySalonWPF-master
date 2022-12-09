@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:BeautySalonWPF.View.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PricePage">
+      Title="PricePage"
+      Background="#7678a1">
 
     <Page.Resources>
         <Style TargetType="TextBlock">
@@ -33,46 +34,51 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition/>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock x:Name="TitleTextBlock" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22"/>
-        <ListView x:Name="ServiceList_View" Grid.Row="1">
+        <ListView x:Name="ServiceListView" Grid.Row="1" Background="#c6b9d3">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
-                       
+                    <Grid MouseLeftButtonDown="GridMouseLeftButtonDown">
+                        <StackPanel>
+                            <TextBlock  Text="{Binding Title}" FontSize="22"></TextBlock>
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Cost}"  TextWrapping="Wrap" Foreground="IndianRed" FontSize="16" Margin="500, 5, 0, 0" TextAlignment="Right"></TextBlock>
+                        </StackPanel>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel/>
+                    <StackPanel/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
         </ListView>
-        <Grid HorizontalAlignment="Right" Grid.RowSpan="2"  Width="0" >
+        <Grid HorizontalAlignment="Right" Width="200" Visibility="Collapsed" x:Name="SignServices" Grid.Row="1" Background="#fcdad9">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"></RowDefinition>
-                <RowDefinition Height="5*"></RowDefinition>
+                <RowDefinition Height="4*"></RowDefinition>
                 <RowDefinition Height="1*"></RowDefinition>
                 <RowDefinition Height="1*"></RowDefinition>
                 <RowDefinition Height="1*"></RowDefinition>
                 <RowDefinition Height="1*"></RowDefinition>
             </Grid.RowDefinitions>
             <TextBlock >Запись</TextBlock>
-            <Calendar x:Name="CalendarRecord"  Grid.Row="1" >
+            <Calendar x:Name="CalendarRecord" Grid.Row="1" >
             </Calendar>
             <DockPanel Grid.Row="2">
-                <TextBlock FontSize="15" >Дата:</TextBlock>
-                <TextBox x:Name="EnterDate_TextBox"  IsReadOnly="True" ></TextBox>
+                <TextBlock FontSize="15">Дата:</TextBlock>
+                <TextBox x:Name="EnterDate_TextBox" IsReadOnly="True" Text="{Binding ElementName=CalendarRecord, Path=SelectedDate, StringFormat=d, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </DockPanel>
             <DockPanel Grid.Row="3">
                 <TextBlock FontSize="15">Время:</TextBlock>
                 <TextBox x:Name="EnterTime_TextBox" ></TextBox>
             </DockPanel>
-            <Button x:Name="Record_Button" Grid.Row="4" Style="{StaticResource Button_Record_Close}" Foreground="White"   Content="Записать"></Button>
-            <Button x:Name="Record_Close"  Grid.Row="5" Style="{StaticResource Button_Record_Close}" Foreground="Black" Background="Gray" Content="Закрыть"  ></Button>
+            <Button x:Name="Record_Button" Click="RecordButtonClick" Grid.Row="4" Style="{StaticResource Button_Record_Close}" Foreground="#4e444c" Background="#f6ebe7" Content="Записать"></Button>
+            <Button x:Name="Record_Close" Click="RecordCloseClick" Grid.Row="5" Style="{StaticResource Button_Record_Close}" Foreground="#f6ebe7" Background="#4e444c" Content="Закрыть"  ></Button>
         </Grid>
     </Grid>
 </Page>

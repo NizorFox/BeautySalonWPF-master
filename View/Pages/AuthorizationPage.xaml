@@ -6,17 +6,17 @@
       xmlns:local="clr-namespace:BeautySalonWPF.View.Pages"
       mc:Ignorable="d"  
       d:DesignHeight="450" d:DesignWidth="800"
-      Background="Wheat"
+      Background="#4e444c"
       Title="AuthorizationPage">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="AuthoStackPanel">
-            <TextBlock>Логин</TextBlock>
+            <TextBlock Foreground="#f6ebe7">Логин</TextBlock>
             <TextBox x:Name="LoginTextBox" TabIndex="0" >
             </TextBox>
-            <TextBlock>Пароль</TextBlock>
+            <TextBlock Foreground="#f6ebe7">Пароль</TextBlock>
             <PasswordBox x:Name="PasswordPasswordBox" TabIndex="1" ></PasswordBox>
-            <Button x:Name="AuthButton" Click="AuthButtonClick" Margin="0, 20, 0, 0" Content="Войти"></Button>
-            <Button x:Name="RegButton" Style="{StaticResource RegistrButton}" Click="RegButtonClick" TabIndex="3" IsTabStop="True" ></Button>
+            <Button x:Name="AuthButton" Click="AuthButtonClick" Margin="0, 20, 0, 0" Content="Войти" Background="#343855" Foreground="#c6b9d3"></Button>
+            <Button x:Name="RegButton" Style="{StaticResource RegistrButton}" Click="RegButtonClick" TabIndex="3" IsTabStop="True" Foreground="#f6ebe7"></Button>
         </StackPanel>
     </Grid>
 </Page>

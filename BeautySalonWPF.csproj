@@ -91,7 +91,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Manager.cs" />
-    <Compile Include="Models\ServicesModel.cs" />
+    <Compile Include="Models\Services.cs" />
     <Compile Include="Product.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

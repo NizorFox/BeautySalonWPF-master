@@ -24,8 +24,36 @@ namespace BeautySalonWPF.View.Pages
         public PricePage(int idCategory)
         {
             InitializeComponent();
-            ServiceList_View.ItemsSource = ServicesController.GetServices(idCategory);
+            ServiceListView.ItemsSource = ServicesController.GetServices(idCategory);
             TitleTextBlock.Text = ServiceCategoryesClass.GetInfoCategoryes(idCategory).CategoryTitle;
+        }
+
+        private void SignUpservices(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void GridMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            SignServices.Visibility = Visibility.Visible;
+        }
+
+        private void RecordCloseClick(object sender, RoutedEventArgs e)
+        {
+            SignServices.Visibility = Visibility.Collapsed;
+        }
+
+        private void RecordButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (!String.IsNullOrEmpty(EnterDate_TextBox.Text) && !String.IsNullOrEmpty(EnterTime_TextBox.Text))
+            {
+                SignServices.Visibility = Visibility.Collapsed;
+                MessageBox.Show("Господин, мы Вас записали!");
+            }
+            else
+            {
+                MessageBox.Show("Ну введи данные *****");
+            }
         }
     }
 }
